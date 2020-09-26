@@ -67,15 +67,15 @@ workflows:
     jobs:
       - build
       - test:
-          requires:
-            - build
+        requires:
+          - build
       - build-and-push:
         requires:
           - test
-          filters:
-            branches:
-              only: 
-                - master
+        filters:
+          branches:
+            only: 
+              - master
       - deploy:
-          requires:
-            - build-and-push
+        requires:
+          - build-and-push
